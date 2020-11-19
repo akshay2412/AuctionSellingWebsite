@@ -8,7 +8,7 @@ node {
 	git branch: 'main', 
 	//credentialsId: 'github', 
 	url: 'https://github.com/akshay2412/AuctionSellingWebsite.git',
-    echo "Successfull" 
+  
    
    }
 
