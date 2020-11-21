@@ -16,7 +16,7 @@ node {
 	   //def mvnHome = tool name: 'mavennew', type: 'maven'
 	   //def mvnCMD  = "${mvnHome}/bin/mvn"
 	   //bat "mvnCMD clean package"
-	   withMaven(
+	   withMaven{
         // Maven installation declared in the Jenkins "Global Tool Configuration"
         maven: 'mavennew', // (1)
         // Use `$WORKSPACE/.repository` for local repository folder to avoid shared repositories
@@ -26,7 +26,7 @@ node {
         // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
         // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
         mavenSettingsConfig: 'my-maven-settings' // (3)
-    ) {
+	   } {
 
       // Run the maven build
       sh "mvn clean verify"
