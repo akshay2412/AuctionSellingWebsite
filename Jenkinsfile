@@ -1,7 +1,7 @@
 node {
    // This is to demo github action	
    // def sonarUrl = 'sonar.host.url=http://172.31.30.136:9000'
-    def mvn = tool (name: 'mavennew', type: 'maven') + '/bin/mvn'
+    //def mvn = tool (name: 'mavennew', type: 'maven') + '/bin/mvn'
     stage('SCM Checkout'){
     // Clone repo
         
@@ -13,8 +13,9 @@ node {
    }
    stage('Mvn Package installation and build'){
 	   // Build using maven
-	   
-	   bat "mvn clean package"
+	   def mvnHome = tool name: 'newmaven', type: 'maven'
+	   def mvnCMD  = "${mvnHome}/bin/mvn"
+	   bat "{mvnCMD} clean package"
    }
 
    stage ('Testing')
