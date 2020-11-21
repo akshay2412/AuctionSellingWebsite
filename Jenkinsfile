@@ -15,7 +15,7 @@ node {
 	   // Build using maven
 	   def mvnHome = tool name: 'mavennew', type: 'maven'
 	   def mvnCMD  = "${mvnHome}/bin/mvn"
-	   bat "{mvnCMD} clean package"
+	   bat "mvnCMD clean package"
    }
 
    stage ('Testing')
