@@ -18,7 +18,7 @@ node {
 	   //bat "mvnCMD clean package"
 	   withMaven{
         // Maven installation declared in the Jenkins "Global Tool Configuration"
-        maven: 'mavennew', // (1)
+        maven: 'maven-3', // (1)
         // Use `$WORKSPACE/.repository` for local repository folder to avoid shared repositories
         mavenLocalRepo: '.repository', // (2)
         // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
