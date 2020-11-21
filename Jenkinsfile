@@ -14,7 +14,7 @@ node {
    stage('Mvn Package installation and build'){
 	   // Build using maven
 	   
-	   sh "mvn clean package"
+	   bat "mvn clean package"
    }
 
    stage ('Testing')
