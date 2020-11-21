@@ -2,7 +2,7 @@ node {
    // This is to demo github action	
    // def sonarUrl = 'sonar.host.url=http://172.31.30.136:9000'
     //def mvn = tool (name: 'mavennew', type: 'maven') + '/bin/mvn'
-	tools {
+	tool {
         maven 'Maven_3.5.2' 
     }
     stage('SCM Checkout'){
