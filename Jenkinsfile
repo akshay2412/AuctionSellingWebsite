@@ -13,7 +13,7 @@ node {
    }
    stage('Mvn Package installation and build'){
 	   
-                withMaven(maven : 'mavennew') {
+                withMaven(maven : 'maven-3') {
                     bat 'mvn clean compile'
                 }
      
