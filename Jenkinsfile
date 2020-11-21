@@ -14,8 +14,8 @@ node {
    stage('Mvn Package installation and build'){
 	   
                 withMaven(maven : 'maven-3') {
-                    bat "mvn clean package"
-                }
+                    bat "mvn clean --file *.pom"
+		}
      
    }
 
