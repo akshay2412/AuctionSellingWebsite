@@ -31,7 +31,16 @@ node {
     }
      
    }
+    stage ('Deploy Docker Image')
+   {
+     docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
 
+        def customImage = docker.build("akshay2412/AuctionSellingWebsite")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }
+   }
    stage ('Testing')
    {
     echo "Successfull" 
