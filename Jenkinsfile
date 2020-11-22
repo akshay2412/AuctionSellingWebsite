@@ -22,11 +22,11 @@ node {
         // We recommend to define Maven settings.xml globally at the folder level using
         // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
         // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
-        mavenSettingsConfig: 'MySettings' // (3)
+        mavenSettingsConfig: '05e11f96-9451-45ba-9e6a-3aa0842654eb' // (3)
     ) {
 
       // Run the maven build
-         sh 'mvn clean install -s mvn-settings.xml'
+         sh 'mvn clean install'
 
     }
      
