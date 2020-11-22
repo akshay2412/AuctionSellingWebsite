@@ -7,7 +7,7 @@ node {
         
 	git branch: 'main', 
 	//credentialsId: 'github', 
-	url: 'https://github.com/akshay2412/AuctionSellingWebsite.git'
+	url: 'https://github.com/akshay2412/auctionsellingwebsite.git'
   
    
    }
@@ -35,7 +35,7 @@ node {
    {
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 
-        def customImage = docker.build("akshay2412/AuctionSellingWebsite")
+        def customImage = docker.build("akshay2412/auctionsellingwebsite")
 
         /* Push the container to the custom Registry */
         customImage.push()
