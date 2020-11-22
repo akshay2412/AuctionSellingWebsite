@@ -26,7 +26,7 @@ node {
     ) {
 
       // Run the maven build
-         sh "mvn clean install -s mvn-settings.xml"
+         sh 'mvn clean install -s mvn-settings.xml'
 "
     }
      
