@@ -26,7 +26,7 @@ node {
     ) {
 
       // Run the maven build
-         sh 'mvn clean install'
+         bat 'mvn clean install'
 
     }
      
