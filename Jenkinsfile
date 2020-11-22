@@ -33,7 +33,7 @@ node {
    }
     stage ('Deploy Docker Image')
    {
-     docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
+     docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 
         def customImage = docker.build("akshay2412/AuctionSellingWebsite")
 
