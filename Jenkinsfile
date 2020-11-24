@@ -31,7 +31,7 @@ node {
     }
      
    }
-    stage ('Deploy Docker Image')
+    stage ('Push Docker Image')
    {
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 
@@ -40,6 +40,11 @@ node {
         /* Push the container to the custom Registry */
         customImage.push()
     }
+   }
+   stage('Run and build Docker Image')
+   {
+	   docker build -t akshay2412/auctionsellingwebsite .
+           docker run -it --rm --name devops-pro akshay2412/auctionsellingwebsite
    }
    stage ('Testing')
    {
