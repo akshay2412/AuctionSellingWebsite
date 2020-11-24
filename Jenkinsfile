@@ -35,7 +35,7 @@ node {
    {
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 
-        def customImage = docker.build("akshay2412/auctionsellingwebsite")
+        def customImage = docker.build("akshay2412/auctionsellingwebsite:2.0.0")
 
         /* Push the container to the custom Registry */
         customImage.push()
@@ -43,8 +43,8 @@ node {
    }
    stage('Run and build Docker Image')
    {
-	   //docker build -t auctionsellingwebsite .
-           docker run -it --rm --name devops-pro auctionsellingwebsite
+	   docker build -t auctionsellingwebsite .
+           //docker run -it --rm --name devops-pro auctionsellingwebsite
    }
    stage ('Testing')
    {
