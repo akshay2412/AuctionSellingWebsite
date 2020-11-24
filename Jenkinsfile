@@ -43,7 +43,7 @@ node {
    }
    stage('Run and build Docker Image')
    {
-	   docker build -t auctionsellingwebsite .
+	   //docker build -t auctionsellingwebsite .
            docker run -it --rm --name devops-pro auctionsellingwebsite
    }
    stage ('Testing')
