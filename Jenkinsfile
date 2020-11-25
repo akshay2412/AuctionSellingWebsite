@@ -47,13 +47,14 @@ node {
 	  //sshagent(credentials: ['sshcred']) {
 		//bat "ssh -o StrictHostKeyChecking=no ec2-user@172.31.43.90  ${dockerRun} "
 		//}
-	     def tomcatDevIp = '172.31.28.172'
-	   def tomcatHome = '/opt/tomcat8/'
-	   def webApps = tomcatHome+'webapps/'
-	   def tomcatStart = "${tomcatHome}bin/startup.sh"
-	   def tomcatStop = "${tomcatHome}bin/shutdown.sh"
-	   
+	     //def tomcatDevIp = '172.31.28.172'
+	   //def tomcatHome = '/opt/tomcat8/'
+	   //def webApps = tomcatHome+'webapps/'
+	   //def tomcatStart = "${tomcatHome}bin/startup.sh"
+	   //def tomcatStop = "${tomcatHome}bin/shutdown.sh"
+	   echo "hlo"
 	   sshagent (credentials: ['sshcred2']) {
+		   echo "hi"
 	      bat "scp -o StrictHostKeyChecking=no target/myweb*.war akshay2412@${tomcatDevIp}:${webApps}myweb.war"
           bat "ssh akshay2412@${tomcatDevIp} ${tomcatStop}"
 		  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
