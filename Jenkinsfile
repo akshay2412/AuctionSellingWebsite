@@ -43,7 +43,7 @@ node {
    }
    stage('Run and build Docker Image')
    {
-	  sshagent (credentials: ['a9ced8d9-4558-463a-b0b8-61236ddf49f4']) {
+	  sshagent (credentials: 'a9ced8d9-4558-463a-b0b8-61236ddf49f4') {
 		 def dockerRun = "docker run -d -p 8080:8080 --name=devopspro akshay2412/auctionsellingwebsite:3.0.0"
 		 bat "ssh -o StrictHostKeyChecking=no ec2-user@172.31.43.90  ${dockerRun} "
 		}
