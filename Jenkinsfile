@@ -53,7 +53,7 @@ node {
 	   def tomcatStart = "${tomcatHome}bin/startup.sh"
 	   def tomcatStop = "${tomcatHome}bin/shutdown.sh"
 	   
-	   sshagent (credentials: ['sshcred']) {
+	   sshagent (credentials: ['sshcred2']) {
 	      bat "scp -o StrictHostKeyChecking=no target/myweb*.war akshay2412@${tomcatDevIp}:${webApps}myweb.war"
           bat "ssh akshay2412@${tomcatDevIp} ${tomcatStop}"
 		  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
