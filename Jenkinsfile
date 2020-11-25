@@ -43,10 +43,21 @@ node {
    }
    stage('Run and build Docker Image')
    {
-	  def dockerRun = "docker run -d -p 8080:8080 --name=devopspro akshay2412/auctionsellingwebsite:3.0.0"
-	  sshagent(credentials: ['sshcred']) {
-		bat "ssh -o StrictHostKeyChecking=no ec2-user@172.31.43.90  ${dockerRun} "
-		}
+	  //def dockerRun = "docker run -d -p 8080:8080 --name=devopspro akshay2412/auctionsellingwebsite:3.0.0"
+	  //sshagent(credentials: ['sshcred']) {
+		//bat "ssh -o StrictHostKeyChecking=no ec2-user@172.31.43.90  ${dockerRun} "
+		//}
+	     def tomcatDevIp = '172.31.28.172'
+	   def tomcatHome = '/opt/tomcat8/'
+	   def webApps = tomcatHome+'webapps/'
+	   def tomcatStart = "${tomcatHome}bin/startup.sh"
+	   def tomcatStop = "${tomcatHome}bin/shutdown.sh"
+	   
+	   sshagent (credentials: ['sshcred']) {
+	      bat "scp -o StrictHostKeyChecking=no target/myweb*.war akshay2412@${tomcatDevIp}:${webApps}myweb.war"
+          bat "ssh akshay2412@${tomcatDevIp} ${tomcatStop}"
+		  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
+       }
    }
    stage ('Testing')
    {
