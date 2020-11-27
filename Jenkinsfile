@@ -35,7 +35,7 @@ node {
    {
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 
-        def customImage = docker.build("akshay2412/auctionsellingwebsite:3.0.0")
+        def customImage = docker.build("akshay2412/auctionsellingwebsite:4.0.0")
 
         /* Push the container to the custom Registry */
         customImage.push()
@@ -52,13 +52,14 @@ node {
 	   //def webApps = tomcatHome+'webapps/'
 	   //def tomcatStart = "${tomcatHome}bin/startup.sh"
 	   //def tomcatStop = "${tomcatHome}bin/shutdown.sh"
-	   echo "hlo"
-	   sshagent (credentials: ['sshcred2']) {
-		   echo "hi"
-	      bat "scp -o StrictHostKeyChecking=no target/myweb*.war akshay2412@${tomcatDevIp}:${webApps}myweb.war"
-          bat "ssh akshay2412@${tomcatDevIp} ${tomcatStop}"
-		  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
-       }
+	  // echo "hlo"
+	   //sshagent (credentials: ['sshcred2']) {
+		//   echo "hi"
+	      //bat "scp -o StrictHostKeyChecking=no target/myweb*.war akshay2412@${tomcatDevIp}:${webApps}myweb.war"
+          //bat "ssh akshay2412@${tomcatDevIp} ${tomcatStop}"
+		//  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
+       //}
+	 docker run --publish 8000:8000 node-docker myweb-0.0.11.war
    }
    stage ('Testing')
    {
