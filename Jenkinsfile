@@ -60,7 +60,8 @@ node {
 		//  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
        //}
 	   agent docker{
-		   docker run --publish 8000:8080 --detach --name bb auctionsellingwebsite:4.0.0}
+		   docker run --publish 8000:8080 --detach --name bb auctionsellingwebsite:4.0.0
+	   }
    }
    stage ('Testing')
    {
