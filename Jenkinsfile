@@ -62,7 +62,7 @@ node {
 	   agent 
 	   {
 		   docker{
-			   docker run --publish 8000:8080 --detach --name bb auctionsellingwebsite
+			   docker run --publish 8000:8080 --detach auctionsellingwebsite:4.0.0
 		   }
 	   }
    }
