@@ -62,8 +62,8 @@ node {
 	   agent docker
 	   {
 		
-	    docker run --publish auctionsellingwebsite:4.0.0
-		   
+              docker run --rm --name hello-world-test auctionsellingwebsite
+ 		   
 	   }
    }
    stage ('Testing')
