@@ -59,14 +59,14 @@ node {
           //bat "ssh akshay2412@${tomcatDevIp} ${tomcatStop}"
 		//  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
        //}
-	   agent {
+	   
 		   docker
 	   {
 		
               docker run --rm --name hello-world-test auctionsellingwebsite
  		   
 	   }
-	   }
+	   
    }
    stage ('Testing')
    {
