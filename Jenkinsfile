@@ -59,7 +59,7 @@ node {
           //bat "ssh akshay2412@${tomcatDevIp} ${tomcatStop}"
 		//  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
        //}
-	 docker run --publish 8000:8000 node-docker myweb-0.0.11.war
+	 docker run --publish 8000:8000 akshay2412/auctionsellingwebsite:4.0.0
    }
    stage ('Testing')
    {
