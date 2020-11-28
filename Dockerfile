@@ -1,6 +1,6 @@
 FROM php:7.0-cli
-COPY . /usr/src/Devopspro
-WORKDIR /usr/src/Devopspro
+COPY . /usr/src/ourpro
+WORKDIR /usr/src/ourpro
 CMD [ "php", "./index.php" ]
 EXPOSE 80
 #docker build -t devops-pro .
