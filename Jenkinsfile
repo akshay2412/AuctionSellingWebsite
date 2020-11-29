@@ -35,14 +35,14 @@ node {
    {
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 
-        def customImage = docker.build("akshay2412/auctionsellingwebsite:5.0.0")
+        def customImage = docker.build("akshay2412/auctionsellingwebsite:6.0.0")
 
         /* Push the container to the custom Registry */
         customImage.push()
     }
    }
-   stage('Run and build Docker Image')
-   {
+   //stage('Run and build Docker Image')
+   //{
 	  //def dockerRun = "docker run -d -p 8080:8080 --name=devopspro akshay2412/auctionsellingwebsite:3.0.0"
 	  //sshagent(credentials: ['sshcred']) {
 		//bat "ssh -o StrictHostKeyChecking=no ec2-user@172.31.43.90  ${dockerRun} "
@@ -60,10 +60,10 @@ node {
 		//  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
        //}
 	
-              docker run --rm --name hello-world-test auctionsellingwebsite
+          //    docker run --rm --name hello-world-test auctionsellingwebsite
  		   
 	   
-   }
+   //}
    stage ('Testing')
    {
     echo "Successfull" 
