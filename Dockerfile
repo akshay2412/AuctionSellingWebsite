@@ -1,8 +1,8 @@
-FROM php:7.0-cli
-COPY . /usr/src/ourpro
-WORKDIR /usr/src/ourpro
-CMD [ "php", "./index.php" ]
-EXPOSE 80
+#FROM php:7.0-cli
+#COPY . /usr/src/ourpro
+#WORKDIR /usr/src/ourpro
+#CMD [ "php", "./index.php" ]
+#EXPOSE 80
 #docker build -t devops-pro .
 #docker run -it --rm --name my-running-app devops-pro
   
