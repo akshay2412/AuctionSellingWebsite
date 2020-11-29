@@ -1,7 +1,7 @@
 FROM php:7.0-cli
 COPY . /usr/src/auction
 WORKDIR /usr/src/auction
-CMD [ "php", "./index.php" ]
+CMD [ "php", "index.php" ]
 EXPOSE 80
 #docker build -t devops-pro .
 #docker run -it --rm --name my-running-app devops-pro
