@@ -1,4 +1,4 @@
-FROM php:7.0-cli
+FROM php:7.0-apache
 COPY . /usr/src/auction
 WORKDIR /usr/src/auction
 CMD [ "php", "./auction/index.php" ]
