@@ -33,15 +33,12 @@ node {
    }
     stage ('Push Docker Image')
    {
-	   agent {
-    docker {
+    agent docker{
+    
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
- 
-        def customImage = docker.build("akshay2412/auctionsellingwebsite:6.0.0")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
-    }
+	     def customImage = docker.build("akshay2412/auctionsellingwebsite:6.0.0")
+	     /* Push the container to the custom Registry */
+	     customImage.push()
     }
     }
    }
