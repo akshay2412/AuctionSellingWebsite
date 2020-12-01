@@ -3,8 +3,8 @@ COPY . /usr/src/auction
 WORKDIR /usr/src/auction
 CMD [ "php", "./auction/index.php" ]
 EXPOSE 80
-docker build -t auctionsellingwebsite .
-docker run -it --rm --name my-running-app auctionsellingwebsite
+#docker build -t auctionsellingwebsite .
+#docker run -it --rm --name my-running-app auctionsellingwebsite
   
 #FROM tomcat:8
 # Take the war and copy to webapps of tomcat
