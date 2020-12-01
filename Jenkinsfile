@@ -11,7 +11,7 @@ node {
   
    
    }
-   stage('Mvn Package installation and build'){
+   stage(' Dependencies installation and build'){
 	   
                     withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
@@ -31,18 +31,20 @@ node {
     }
      
    }
-    stage ('Push Docker Image')
+   stage ('Testing')
    {
-    agent docker{
+    echo "Successfull" 
+   }
+    stage ('Build Docker Image')
+   {
     
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 	     def customImage = docker.build("akshay2412/auctionsellingwebsite:6.0.0")
 	     /* Push the container to the custom Registry */
-	     customImage.push()
-    }
+	     
     }
    }
-   //stage('Run and build Docker Image')
+   stage('Deploy Docker Image')
    //{
 	  //def dockerRun = "docker run -d -p 8080:8080 --name=devopspro akshay2412/auctionsellingwebsite:3.0.0"
 	  //sshagent(credentials: ['sshcred']) {
@@ -62,12 +64,9 @@ node {
        //}
 	
           //    docker run --rm --name hello-world-test auctionsellingwebsite
- 		   
+ 		customImage.push()   
 	   
    //}
-   stage ('Testing')
-   {
-    echo "Successfull" 
-   }
+   
 
 }
