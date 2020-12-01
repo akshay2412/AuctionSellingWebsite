@@ -35,16 +35,17 @@ node {
    {
     echo "Successfull" 
    }
-    stage ('Build Docker Image')
+    stage ('Build and Deploy Docker Image')
    {
     
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 	     def customImage = docker.build("akshay2412/auctionsellingwebsite:6.0.0")
 	     /* Push the container to the custom Registry */
+	     customImage.push()
 	     
     }
    }
-   stage('Deploy Docker Image')
+  // stage('Deploy Docker Image')
    //{
 	  //def dockerRun = "docker run -d -p 8080:8080 --name=devopspro akshay2412/auctionsellingwebsite:3.0.0"
 	  //sshagent(credentials: ['sshcred']) {
@@ -64,7 +65,7 @@ node {
        //}
 	
           //    docker run --rm --name hello-world-test auctionsellingwebsite
- 		customImage.push()   
+ 		   
 	   
    //}
    
