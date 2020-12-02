@@ -1,7 +1,5 @@
 node {
-   // This is to demo github action	
-   // def sonarUrl = 'sonar.host.url=http://172.31.30.136:9000'
-    //def mvn = tool (name: 'mavennew', type: 'maven') + '/bin/mvn'       maven 'Maven_3.5.2' 
+   // This is to Jenkins pipeline
     stage('SCM Checkout'){
     // Clone repo
         
