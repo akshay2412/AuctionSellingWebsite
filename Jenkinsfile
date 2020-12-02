@@ -32,7 +32,7 @@ node {
    stage ('Testing')
    {
    // echo "Successfull" 
-	  bat 'python home.py'
+	  python home.py
    }
     stage ('Build and Deploy Docker Image')
    {
