@@ -16,7 +16,7 @@ def scrollPageUp(driver):
 
 
 # Website Address
-auctionsiteurl = "http://localhost:8080/auction/"
+auctionsiteurl = "http://localhost/auction/"
 
 
 # Locators
