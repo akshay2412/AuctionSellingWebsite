@@ -43,18 +43,18 @@ steps{
 	  bat 'python home.py'
 }
    }
-    stage ('Build and Deploy Docker Image')
-   {
+   // stage ('Build and Deploy Docker Image')
+   //{
     //steps{
      //docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 	//     def customImage = docker.build("akshay2412/auctionsellingwebsite:7.0.0")
 	     /* Push the container to the custom Registry */
 	  //   customImage.push()
-	   echo "yes"
-     }
+	//   echo "yes"
+    // }
 	     
-    }
-   }
+    //}
+   //}
  }
 }
   // stage('Deploy Docker Image')
