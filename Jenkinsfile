@@ -46,8 +46,8 @@
 	     /* Push the container to the custom Registry */
 	   //  customImage.push()
 	     
-    }
-   }
+  ///  }
+   //}
   // stage('Deploy Docker Image')
    //{
 	  //def dockerRun = "docker run -d -p 8080:8080 --name=devopspro akshay2412/auctionsellingwebsite:3.0.0"
@@ -71,10 +71,10 @@
  		   
 	   
    //}
-	}
+//	}
    
 
-}
+//}
 */
 pipeline {
    // This is to Jenkins pipeline
