@@ -45,11 +45,12 @@ steps{
    }
     stage ('Build and Deploy Docker Image')
    {
-    steps{
-     docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
-	     def customImage = docker.build("akshay2412/auctionsellingwebsite:7.0.0")
+    //steps{
+     //docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
+	//     def customImage = docker.build("akshay2412/auctionsellingwebsite:7.0.0")
 	     /* Push the container to the custom Registry */
-	     customImage.push()
+	  //   customImage.push()
+	   echo "yes"
      }
 	     
     }
