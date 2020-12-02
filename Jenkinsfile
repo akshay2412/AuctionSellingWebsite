@@ -1,5 +1,8 @@
 node {
    // This is to Jenkins pipeline
+    agent { docker { image 'python:2.7.0' } }
+    agent { docker { image 'php' } }
+
     stage('SCM Checkout'){
     // Clone repo
         
@@ -32,13 +35,13 @@ node {
    stage ('Testing')
    {
    // echo "Successfull" 
-	  python home.py
+	  bat 'python home.py'
    }
     stage ('Build and Deploy Docker Image')
    {
     
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
-	     def customImage = docker.build("akshay2412/auctionsellingwebsite:6.0.0")
+	     def customImage = docker.build("akshay2412/auctionsellingwebsite:7.0.0")
 	     /* Push the container to the custom Registry */
 	     customImage.push()
 	     
@@ -63,7 +66,7 @@ node {
 		//  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
        //}
 	
-          //    docker run --rm --name hello-world-test auctionsellingwebsite
+          bat 'docker run --rm --name hello-world-test auctionsellingwebsite:7.0.0'
  		   
 	   
    //}
