@@ -2,7 +2,8 @@ pipeline {
    // This is to Jenkins pipeline
     agent { docker { image 'python:2.7.0' } }
     agent { docker { image 'php' } }
-
+	
+	stages{
     stage('SCM Checkout'){
     // Clone repo
         
@@ -70,6 +71,7 @@ pipeline {
  		   
 	   
    //}
+	}
    
 
 }
