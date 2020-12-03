@@ -1,4 +1,4 @@
-node {
+/*node {
    // This is to Jenkins pipeline
     stage('SCM Checkout'){
     // Clone repo
@@ -40,7 +40,7 @@ node {
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 	     def customImage = docker.build("akshay2412/auctionsellingwebsite:7.0.0")
 	     /* Push the container to the custom Registry */
-	    customImage.push()
+	   // customImage.push()
 	     
     }
    }
@@ -72,3 +72,13 @@ node {
    
 
 //}
+pipeline {
+    agent { docker { image 'python:3.5.1' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
+    }
+}
