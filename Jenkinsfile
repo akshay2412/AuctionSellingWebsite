@@ -9,7 +9,7 @@ node {
   
    
    }
-   stage(' Dependencies installation and build'){
+   stage('Dependencies installation and build'){
 	   
                     withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
@@ -31,7 +31,7 @@ node {
    }
    stage ('Testing')
    {
-    echo "Successfull" 
+    echo "Very Successfull" 
 	//  bat 'python home.py'
    }
     stage ('Build and Deploy Docker Image')
