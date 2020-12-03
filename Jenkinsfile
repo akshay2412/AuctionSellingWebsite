@@ -1,21 +1,16 @@
-pipeline {
+node {
    // This is to Jenkins pipeline
-    agent { docker { image 'python:2.7.15' } }
-
-	
-	stages{
     stage('SCM Checkout'){
     // Clone repo
-        steps{
+        
 	git branch: 'main', 
 	//credentialsId: 'github', 
 	url: 'https://github.com/akshay2412/auctionsellingwebsite.git'
-              }
   
    
    }
    stage(' Dependencies installation and build'){
-	steps{   
+	   
                     withMaven(
         // Maven installation declared in the Jenkins "Global Tool Configuration"
         maven: 'maven-3', // (1)
@@ -32,30 +27,23 @@ pipeline {
          bat 'mvn clean install'
 
     }
-	}
-}
      
-
+   }
    stage ('Testing')
    {
    // echo "Successfull" 
-steps{
 	  bat 'python home.py'
-}
    }
-   // stage ('Build and Deploy Docker Image')
-   //{
-    //steps{
-     //docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
-	//     def customImage = docker.build("akshay2412/auctionsellingwebsite:7.0.0")
+    stage ('Build and Deploy Docker Image')
+   {
+    
+     docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
+	     def customImage = docker.build("akshay2412/auctionsellingwebsite:7.0.0")
 	     /* Push the container to the custom Registry */
-	  //   customImage.push()
-	//   echo "yes"
-    // }
+	    customImage.push()
 	     
-    //}
-   //}
- }
+    }
+   }
 }
   // stage('Deploy Docker Image')
    //{
@@ -76,9 +64,11 @@ steps{
 		//  bat "ssh akshay2412@${tomcatDevIp} ${tomcatStart}"
        //}
 	
-         // bat 'docker run --rm --name hello-world-test auctionsellingwebsite:7.0.0'
+        //  bat 'docker run --rm --name hello-world-test auctionsellingwebsite:7.0.0'
  		   
 	   
    //}
-	//}
+//	}
+   
 
+//}
