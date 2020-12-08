@@ -31,7 +31,7 @@ node {
    }
    stage ('Testing')
    {
-    echo "VeryppppSuccessfull" 
+    echo "VerySuccessfull" 
 	//  bat 'python home.py'
    }
     stage ('Build and Deploy Docker Image')
