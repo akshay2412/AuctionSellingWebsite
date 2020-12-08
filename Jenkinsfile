@@ -1,4 +1,4 @@
-/*node {
+node {
    // This is to Jenkins pipeline
     stage('SCM Checkout'){
     // Clone repo
@@ -39,12 +39,12 @@
     
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
 	     def customImage = docker.build("akshay2412/auctionsellingwebsite:7.0.0")
-	     /* Push the container to the custom Registry */
-	   // customImage.push()
+	      /*Push the container to the custom Registry */
+	   customImage.push()
 	     
-   // }
-   //}
-//}
+    }
+   }
+}
   // stage('Deploy Docker Image')
    //{
 	  //def dockerRun = "docker run -d -p 8080:8080 --name=devopspro akshay2412/auctionsellingwebsite:3.0.0"
@@ -72,13 +72,4 @@
    
 
 //}
-pipeline {
-    agent { docker { image 'python:3.5.1' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
-            }
-        }
-    }
-}
+
