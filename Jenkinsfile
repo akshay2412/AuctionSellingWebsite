@@ -31,14 +31,14 @@ node {
    }
    stage ('Testing')
    {
-    echo "VerySuccessfull" 
+    echo "VerySuccessfull   " 
 	//  bat 'python home.py'
    }
     stage ('Build and Deploy Docker Image')
    {
     
      docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub') {
-	     def customImage = docker.build("akshay2412/auctionsellingwebsite:7.0.0")
+	     def customImage = docker.build("akshay2412/auctionsellingwebsite:8.0.0")
 	      /*Push the container to the custom Registry */
 	   customImage.push()
 	     
